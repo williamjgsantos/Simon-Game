@@ -69,6 +69,16 @@ function checkAnswer(currentLevel) {
         console.log("Succes");
     } else {
         console.log("Wrong");
+        gameOver();
     }
+}
 
+function gameOver() {
+    playSound("wrong");
+    $("body").addClass("game-over");
+    $("#level-title").text("Game Over, Press A Key to Restart");
+
+    setTimeout(function() {
+        $("body").removeClass("game-over ");
+    }, 200)
 }
