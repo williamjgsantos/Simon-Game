@@ -6,6 +6,7 @@ $(".btn").click(function(event) {
     let userChosenColour = this.id;
     
     addColour(userChosenColour);
+    playSound(userChosenColour);
 
 });
 
@@ -19,8 +20,8 @@ function nextSequence() {
     playSound(randomChosenColour);
 }
 
-function playSound (buttonId) {
-    let audio = new Audio("sounds/"+ buttonId + ".mp3");
+function playSound (name) {
+    let audio = new Audio("sounds/"+ name + ".mp3");
     audio.play();
 }
 
