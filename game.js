@@ -71,6 +71,8 @@ function checkAnswer(currentLevel) {
         console.log("Wrong");
         gameOver();
     }
+    
+    startOver();
 }
 
 function gameOver() {
@@ -81,4 +83,10 @@ function gameOver() {
     setTimeout(function() {
         $("body").removeClass("game-over ");
     }, 200)
+}
+
+function startOver() {
+    level = 0;
+    gamePattern = [];
+    gameStarted = false;
 }
