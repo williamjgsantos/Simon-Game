@@ -6,4 +6,11 @@ function nextSequence() {
     let randomChosenColour  = buttonColours[randomNumber];
     gamePattern.push(randomChosenColour);
     
+    $("#" + randomChosenColour).fadeOut(100).fadeIn(100);
+    playSound(randomChosenColour);
+}
+
+function playSound (buttonId) {
+    let audio = new Audio("sounds/"+ buttonId + ".mp3");
+    audio.play();
 }
