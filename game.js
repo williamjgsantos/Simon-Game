@@ -20,11 +20,11 @@ $(".btn").click(function(event) {
     addColour(userChosenColour);
     playSound(userChosenColour);
     animatePress(userChosenColour)
-
+    checkAnswer(userClickedPattern.length - 1);
 });
 
 function nextSequence() {
-    
+    userClickedPattern = [];
     let randomNumber = Math.floor(Math.random() * 4); //0-3
     let randomChosenColour  = buttonColours[randomNumber];
     gamePattern.push(randomChosenColour);
@@ -56,4 +56,19 @@ function animatePress(currentColour) {
 
 function changeLevel(number) {
     $("#level-title").text("Level " + number);
+}
+
+function checkAnswer(currentLevel) {
+
+    if (userClickedPattern[currentLevel] === gamePattern[currentLevel]) {
+        if (userClickedPattern.length === gamePattern.length){
+            setTimeout(function () {
+              nextSequence();
+            }, 1000);
+          }
+        console.log("Succes");
+    } else {
+        console.log("Wrong");
+    }
+
 }
