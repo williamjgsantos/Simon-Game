@@ -7,6 +7,7 @@ $(".btn").click(function(event) {
     
     addColour(userChosenColour);
     playSound(userChosenColour);
+    animatePress(userChosenColour)
 
 });
 
@@ -29,4 +30,11 @@ function addColour(btnGotClicked) {
     // Add the id of button to the userClickedPattern array
     let userChosenColour  = btnGotClicked;
     userClickedPattern.push(userChosenColour);
+}
+
+function animatePress(currentColour) {
+    $("#" + currentColour).addClass("pressed");
+    setTimeout(function() {
+        $("#" + currentColour).removeClass("pressed");
+    }, 100)
 }
